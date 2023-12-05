@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIZZΛ BΛTTLE</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+
+        .pizza-container {
+            flex: 1;
+            text-align: left;
+            padding: 20px;
+            margin: 8px;
+            background-color: #fff;
+            border-radius: 4px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #666;
+        }
+
+        input {
+            padding: 8px;
+            margin-bottom: 15px;
+            width: calc(100% - 16px);
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #result {
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 4px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h1>PIZZΛ BΛTTLE</h1>
+
+    <div class="container">
+        <div class="pizza-container">
+            <h2>PIZZA A</h2>
+            <label for="diameterInput1">Diameter of Pizza A (in inches):</label>
+            <input type="number" id="diameterInput1" placeholder="Enter diameter" step="any" value="8">
+            <label for="quantityInput1">Quantity of Pizza A:</label>
+            <input type="number" id="quantityInput1" placeholder="Enter quantity" min="1" value="2">
+        </div>
+
+        <div class="pizza-container">
+            <h2>PIZZA B</h2>
+            <label for="diameterInput2">Diameter of Pizza B (in inches):</label>
+            <input type="number" id="diameterInput2" placeholder="Enter diameter" step="any" value="12">
+            <label for="quantityInput2">Quantity of Pizza B:</label>
+            <input type="number" id="quantityInput2" placeholder="Enter quantity" min="1" value="1">
+        </div>
+    </div>
+
+    <button onclick="compareAreas()">Compare Areas</button>
+
+    <div id="result"></div>
+
+    <script>
+        function compareAreas() {
+            // Get the diameter and quantity input values for both pizzas
+            const diameter1 = parseFloat(document.getElementById("diameterInput1").value);
+            const quantity1 = parseInt(document.getElementById("quantityInput1").value, 10);
+            
+            const diameter2 = parseFloat(document.getElementById("diameterInput2").value);
+            const quantity2 = parseInt(document.getElementById("quantityInput2").value, 10);
+
+            // Check if the inputs are valid numbers and quantities
+            if (!isNaN(diameter1) && !isNaN(quantity1) && !isNaN(diameter2) && !isNaN(quantity2) && quantity1 > 0 && quantity2 > 0) {
+                // Calculate the total areas of the pizzas
+                const area1 = Math.PI * Math.pow(diameter1 / 2, 2) * quantity1;
+                const area2 = Math.PI * Math.pow(diameter2 / 2, 2) * quantity2;
+
+                // Determine which pizza is bigger
+                let biggerPizza = "";
+                if (area1 > area2) {
+                    biggerPizza = "The first pizza is bigger";
+                } else if (area1 < area2) {
+                    biggerPizza = "The second pizza is bigger";
+                } else {
+                    biggerPizza = "Both pizzas have the same total area";
+                }
+
+                // Calculate the percentage difference
+                const percentageDifference = ((area1 - area2) / area2) * 100;
+
+                // Display the result with both areas, quantities, and friendlier percentage difference
+                let resultMessage = `<strong>${biggerPizza}.</strong><br>Total area of Pizza A: ${area1.toFixed(2)} square inches (Quantity: ${quantity1}).<br>Total area of Pizza B: ${area2.toFixed(2)} square inches (Quantity: ${quantity2}).<br>`;
+                
+                if (percentageDifference > 0) {
+                    resultMessage += `Pizza A is ${percentageDifference.toFixed(2)}% bigger than Pizza B.`;
+                } else if (percentageDifference < 0) {
+                    resultMessage += `Pizza A is ${Math.abs(percentageDifference).toFixed(2)}% smaller than Pizza B.`;
+                } else {
+                    resultMessage += "Pizzas A and B have the same total area.";
+                }
+
+                document.getElementById("result").innerHTML = resultMessage;
+            } else {
+                // Display an error message if the inputs are not valid numbers or quantities
+                document.getElementById("result").innerHTML = "<strong>Please enter valid numbers and quantities for the pizzas.</strong>";
+            }
+        }
+    </script>
+</body>
+</html>
