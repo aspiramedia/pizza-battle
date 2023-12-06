@@ -45,19 +45,6 @@
             box-sizing: border-box;
         }
 
-        button {
-            background-color: #4caf50;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #45a049;
-        }
-
         #result {
             padding: 15px;
             background-color: #fff;
@@ -74,25 +61,24 @@
         <div class="pizza-container">
             <h2>PIZZA A</h2>
             <label for="diameterInput1">Diameter of Pizza A (in inches):</label>
-            <input type="number" id="diameterInput1" placeholder="Enter diameter" step="any" value="8">
+            <input type="number" class="pizza-input" id="diameterInput1" placeholder="Enter diameter" step="any" value="8">
             <label for="quantityInput1">Quantity of Pizza A:</label>
-            <input type="number" id="quantityInput1" placeholder="Enter quantity" min="1" value="2">
+            <input type="number" class="pizza-input" id="quantityInput1" placeholder="Enter quantity" min="1" value="2">
         </div>
 
         <div class="pizza-container">
             <h2>PIZZA B</h2>
             <label for="diameterInput2">Diameter of Pizza B (in inches):</label>
-            <input type="number" id="diameterInput2" placeholder="Enter diameter" step="any" value="12">
+            <input type="number" class="pizza-input" id="diameterInput2" placeholder="Enter diameter" step="any" value="12">
             <label for="quantityInput2">Quantity of Pizza B:</label>
-            <input type="number" id="quantityInput2" placeholder="Enter quantity" min="1" value="1">
+            <input type="number" class="pizza-input" id="quantityInput2" placeholder="Enter quantity" min="1" value="1">
         </div>
     </div>
-
-    <button onclick="compareAreas()">Compare Areas</button>
 
     <div id="result"></div>
 
     <script>
+        // Function to compare areas and update the result
         function compareAreas() {
             // Get the diameter and quantity input values for both pizzas
             const diameter1 = parseFloat(document.getElementById("diameterInput1").value);
@@ -137,6 +123,12 @@
                 document.getElementById("result").innerHTML = "<strong>Please enter valid numbers and quantities for the pizzas.</strong>";
             }
         }
+
+        // Add event listener to update the result on input change
+        document.querySelector('.container').addEventListener('input', compareAreas);
+
+        // Initial comparison on page load
+        compareAreas();
     </script>
 </body>
 </html>
