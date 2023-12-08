@@ -8,7 +8,7 @@ function compareAreas() {
     const quantity2 = parseInt(document.getElementById("quantityInput2").value, 10);
 
     // Check if the inputs are valid numbers and quantities
-    if (!isNaN(diameter1) && !isNaN(quantity1) && !isNaN(diameter2) && !isNaN(quantity2) && quantity1 > 0 && quantity2 > 0) {
+    if (!isNaN(diameter1) && !isNaN(quantity1) && !isNaN(diameter2) && !isNaN(quantity2) && quantity1 > 0 && quantity2 > 0 && diameter1 > 0 && diameter2 > 0) {
         // Calculate the total areas of the pizzas
         const area1 = Math.PI * Math.pow(diameter1 / 2, 2) * quantity1;
         const area2 = Math.PI * Math.pow(diameter2 / 2, 2) * quantity2;
@@ -30,9 +30,9 @@ function compareAreas() {
         let resultMessage = `<strong>${biggerPizza}.</strong><br>Total area of Pizza A: ${area1.toFixed(0)} square inches (Quantity: ${quantity1}).<br>Total area of Pizza B: ${area2.toFixed(0)} square inches (Quantity: ${quantity2}).<br>`;
         
         if (percentageDifference > 0) {
-            resultMessage += `Pizza A is ${percentageDifference.toFixed(0)}% bigger than Pizza B.`;
+            resultMessage += `Pizza A is <strong>${percentageDifference.toFixed(0)}% bigger</strong> than Pizza B.`;
         } else if (percentageDifference < 0) {
-            resultMessage += `Pizza A is ${Math.abs(percentageDifference).toFixed(0)}% smaller than Pizza B.`;
+            resultMessage += `Pizza A is <strong>${Math.abs(percentageDifference).toFixed(0)}% smaller</strong> than Pizza B.`;
         } else {
             resultMessage += "Pizzas A and B have the same total area.";
         }
