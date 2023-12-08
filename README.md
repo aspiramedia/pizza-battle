@@ -15,5 +15,6 @@ A simple WIP app for comparing pizza area ensuring that you're getting the best 
 - Crust taken into account
 - Pricing
 - Calories
+- Metric/Imperial
 - Better UI
 - Refactoring and organising
