@@ -27,12 +27,12 @@ function compareAreas() {
         const percentageDifference = ((area1 - area2) / area2) * 100;
 
         // Display the result with both areas, quantities, and friendlier percentage difference
-        let resultMessage = `<strong>${biggerPizza}.</strong><br>Total area of Pizza A: ${area1.toFixed(2)} square inches (Quantity: ${quantity1}).<br>Total area of Pizza B: ${area2.toFixed(2)} square inches (Quantity: ${quantity2}).<br>`;
+        let resultMessage = `<strong>${biggerPizza}.</strong><br>Total area of Pizza A: ${area1.toFixed(0)} square inches (Quantity: ${quantity1}).<br>Total area of Pizza B: ${area2.toFixed(0)} square inches (Quantity: ${quantity2}).<br>`;
         
         if (percentageDifference > 0) {
-            resultMessage += `Pizza A is ${percentageDifference.toFixed(2)}% bigger than Pizza B.`;
+            resultMessage += `Pizza A is ${percentageDifference.toFixed(0)}% bigger than Pizza B.`;
         } else if (percentageDifference < 0) {
-            resultMessage += `Pizza A is ${Math.abs(percentageDifference).toFixed(2)}% smaller than Pizza B.`;
+            resultMessage += `Pizza A is ${Math.abs(percentageDifference).toFixed(0)}% smaller than Pizza B.`;
         } else {
             resultMessage += "Pizzas A and B have the same total area.";
         }
