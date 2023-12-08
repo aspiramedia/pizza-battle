@@ -23,17 +23,17 @@ h1 {
     padding: 20px;
     margin: 8px;
     background-color: #fff;
-    border-radius: 4px;
+    border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 label {
     display: block;
     margin-bottom: 5px;
-    color: #666;
+    color: #666666;
 }
 
-input {
+input[type='number'] {
     padding: 8px;
     font-size: 20px;
     margin-bottom: 15px;
@@ -42,14 +42,37 @@ input {
 }
 
 input:focus {
-    border: 2px solid blue;
+    border: 2px solid black;
     outline: none;
 }
 
+input[type='checkbox'] {
+    margin-left: 16px;
+}
+
 #result {
-    padding: 15px;
+    padding: 20px;
+    margin: 60px 8px 8px 8px;
     background-color: #fff;
-    border-radius: 4px;
+    border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: left;
+    font-size: 20px;
+}
+
+ul.caveats {
+    padding: 20px;
+    margin: 60px 8px 8px 8px;
+    background-color: #eeeeee;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    text-align: left;
+    list-style: none;
+    font-size: 16px;
+    color: #666666;
+}
+
+ul.caveats li {
+    padding: 20px 0;
+    border-bottom: 1px solid #dddddd;
 }
