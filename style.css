@@ -80,3 +80,7 @@ ul.caveats li {
 ul.caveats li:last-child {
     border-bottom: 0px none;
 }
+
+.footer {
+    font-size: 16px;
+}
