@@ -1,3 +1,12 @@
+// Function to calculate the area. Note that diameter, not radius, is used.
+function calcCircleArea(diameter, quantity) {
+    return Math.PI * Math.pow(diameter / 2, 2) * quantity;
+}
+
+function calcPercentDiff(area1, area2) {
+    return ((area1 - area2) / area2) * 100;
+}
+
 // Function to compare areas and update the result
 function compareAreas() {
     // Get the diameter and quantity input values for both pizzas
@@ -12,14 +21,15 @@ function compareAreas() {
 
     // Check if the inputs are valid numbers and quantities
     if (!isNaN(diameter1) && !isNaN(quantity1) && !isNaN(diameter2) && !isNaN(quantity2) && quantity1 > 0 && quantity2 > 0 && diameter1 > 0 && diameter2 > 0) {
+        // Reduce the diameter if the "Exclude crust" option is checked
         if (excludeCrust) {
             diameter1 = diameter1 - 2;
             diameter2 = diameter2 - 2;
         }
 
         // Calculate the total areas of the pizzas
-        const area1 = Math.PI * Math.pow(diameter1 / 2, 2) * quantity1;
-        const area2 = Math.PI * Math.pow(diameter2 / 2, 2) * quantity2;
+        const area1 = calcCircleArea(diameter1, quantity1);
+        const area2 = calcCircleArea(diameter2, quantity2);
 
         // Determine which pizza is bigger
         let biggerPizza = "";
@@ -32,7 +42,7 @@ function compareAreas() {
         }
 
         // Calculate the percentage difference
-        const percentageDifference = ((area1 - area2) / area2) * 100;
+        const percentageDifference = calcPercentDiff(area1, area2);
 
         // Display the result with both areas, quantities, and friendlier percentage difference
         let resultMessage = `<h3>${biggerPizza}.</h3><p>Total area of Pizza A: ${area1.toFixed(0)} square inches (Quantity: ${quantity1}).<br>Total area of Pizza B: ${area2.toFixed(0)} square inches (Quantity: ${quantity2}).<br>`;
