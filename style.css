@@ -68,11 +68,15 @@ ul.caveats {
     border-radius: 8px;
     text-align: left;
     list-style: none;
-    font-size: 16px;
+    font-size: 14px;
     color: #666666;
 }
 
 ul.caveats li {
     padding: 20px 0;
     border-bottom: 1px solid #dddddd;
+}
+
+ul.caveats li:last-child {
+    border-bottom: 0px none;
 }
