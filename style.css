@@ -46,8 +46,12 @@ input:focus {
     outline: none;
 }
 
+.options {
+    font-size: 14px;
+}
+
 input[type='checkbox'] {
-    margin-left: 16px;
+    margin-left: 20px;
 }
 
 #result {

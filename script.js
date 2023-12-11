@@ -7,17 +7,50 @@ function calcPercentDiff(area1, area2) {
     return ((area1 - area2) / area2) * 100;
 }
 
+function convertToMetric(imperialValue) {
+    return (imperialValue * 2.54).toFixed(0);
+}
+
+function convertToImperial(metricValue) {
+    return (metricValue / 2.54).toFixed(0);
+}
+
+let isFirstTime = true;
+
 // Function to compare areas and update the result
 function compareAreas() {
+
     // Get the diameter and quantity input values for both pizzas
     let diameter1 = parseFloat(document.getElementById("diameterInput1").value);
     const quantity1 = parseInt(document.getElementById("quantityInput1").value, 10);
-    
     let diameter2 = parseFloat(document.getElementById("diameterInput2").value);
     const quantity2 = parseInt(document.getElementById("quantityInput2").value, 10);
     
     // Extra options
     const excludeCrust = document.getElementById("excludeCrust").checked;
+    const useMetric = document.getElementById("useMetric").checked;
+    const labelDiameterInput1 = document.querySelector('label[for="diameterInput1"]');
+    const labelDiameterInput2 = document.querySelector('label[for="diameterInput2"]');
+
+    let units = "";
+    if (useMetric) {
+        units = "cm";
+    } else {
+        units = "inches";
+    }
+    labelDiameterInput1.textContent = labelDiameterInput2.textContent = `Diameter (${units}):`;
+
+    document.getElementById('useMetric').addEventListener('change', function() {
+        // Handle the event, e.g., log a message
+        if (this.checked) {
+            document.getElementById("diameterInput1").value = convertToMetric(diameter1);
+            document.getElementById("diameterInput2").value = convertToMetric(diameter2);
+        } else {
+            document.getElementById("diameterInput1").value = convertToImperial(diameter1);
+            document.getElementById("diameterInput2").value = convertToImperial(diameter2);
+        }
+    });
+    
 
     // Check if the inputs are valid numbers and quantities
     if (!isNaN(diameter1) && !isNaN(quantity1) && !isNaN(diameter2) && !isNaN(quantity2) && quantity1 > 0 && quantity2 > 0 && diameter1 > 0 && diameter2 > 0) {
@@ -45,7 +78,7 @@ function compareAreas() {
         const percentageDifference = calcPercentDiff(area1, area2);
 
         // Display the result with both areas, quantities, and friendlier percentage difference
-        let resultMessage = `<h3>${biggerPizza}.</h3><p>Total area of Pizza A: ${area1.toFixed(0)} square inches (Quantity: ${quantity1}).<br>Total area of Pizza B: ${area2.toFixed(0)} square inches (Quantity: ${quantity2}).<br>`;
+        let resultMessage = `<h3>${biggerPizza}.</h3><p>Total area of Pizza A: ${area1.toFixed(0)} square ${units} (Quantity: ${quantity1}).<br>Total area of Pizza B: ${area2.toFixed(0)} square ${units} (Quantity: ${quantity2}).<br>`;
         
         if (percentageDifference > 0) {
             resultMessage += `Pizza A is <strong>${percentageDifference.toFixed(0)}% bigger</strong> than Pizza B.</p>`;
@@ -65,3 +98,4 @@ document.querySelector('body').addEventListener('input', compareAreas);
 
 // Initial comparison on page load
 compareAreas();
+isFirstTime = false;

@@ -28,20 +28,22 @@
 
     </div>
 
-    <input type="checkbox" name="excludeCrust" id="excludeCrust">
-    Exclude crust?
+    <div class="options">
+        <input type="checkbox" name="excludeCrust" id="excludeCrust">
+        Exclude crust?
 
-    <input type="checkbox" name="futureOption1" id="futureOption1">
-    Future option
+        <input type="checkbox" name="useMetric" id="useMetric">
+        Use metric (cm)
 
-    <input type="checkbox" name="futureOption2" id="futureOption2">
-    Future option
+        <input type="checkbox" name="futureOption2" id="futureOption2">
+        Future option
+    </div>
 
     <div id="result"></div>
 
     <ul class="caveats">
         <li><strong>Exclude crust:</strong> For crust haters, this ignores the crust edge. Assumes the crust edge is 1 inch all round. Therefore enabling this option removes 2 inches off the diameter. <em>Fun fact: This is also called the cornicione.</em></li>
-        <li><strong>Caveat label:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam lectus risus, iaculis ultricies mollis id, scelerisque in felis. Duis sit amet dictum eros. Sed sollicitudin congue nisl, quis facilisis mi posuere vel. Phasellus placerat augue a magna gravida, non tincidunt orci volutpat. Ut lectus quam, finibus ut gravida a, scelerisque et ex. </li>
+        <li><strong>Units:</strong> When converting between Metric and Imperial, the nearest whole number is used to keep the input diameters simple.</li>
         <li><strong>Caveat label:</strong> Donec porttitor neque non eros varius sodales. Aenean sed gravida elit.</li>
     </ul>
 
