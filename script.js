@@ -45,9 +45,11 @@ function compareAreas() {
         if (this.checked) {
             document.getElementById("diameterInput1").value = convertToMetric(diameter1);
             document.getElementById("diameterInput2").value = convertToMetric(diameter2);
+            compareAreas();
         } else {
             document.getElementById("diameterInput1").value = convertToImperial(diameter1);
             document.getElementById("diameterInput2").value = convertToImperial(diameter2);
+            compareAreas();
         }
     });
     
@@ -98,4 +100,3 @@ document.querySelector('body').addEventListener('input', compareAreas);
 
 // Initial comparison on page load
 compareAreas();
-isFirstTime = false;
