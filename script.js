@@ -41,7 +41,6 @@ function compareAreas() {
     labelDiameterInput1.textContent = labelDiameterInput2.textContent = `Diameter (${units}):`;
 
     document.getElementById('useMetric').addEventListener('change', function() {
-        // Handle the event, e.g., log a message
         if (this.checked) {
             document.getElementById("diameterInput1").value = convertToMetric(diameter1);
             document.getElementById("diameterInput2").value = convertToMetric(diameter2);
@@ -58,8 +57,13 @@ function compareAreas() {
     if (!isNaN(diameter1) && !isNaN(quantity1) && !isNaN(diameter2) && !isNaN(quantity2) && quantity1 > 0 && quantity2 > 0 && diameter1 > 0 && diameter2 > 0) {
         // Reduce the diameter if the "Exclude crust" option is checked
         if (excludeCrust) {
-            diameter1 = diameter1 - 2;
-            diameter2 = diameter2 - 2;
+            if (useMetric) {
+                diameter1 = diameter1 - (2 * 2.54);
+                diameter2 = diameter2 - (2 * 2.54);
+            } else {
+                diameter1 = diameter1 - 2;
+                diameter2 = diameter2 - 2;
+            }
         }
 
         // Calculate the total areas of the pizzas
