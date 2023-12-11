@@ -37,7 +37,7 @@ input[type='number'] {
     padding: 8px;
     font-size: 20px;
     margin-bottom: 15px;
-    width: calc(100% - 16px);
+    width: 100%;
     box-sizing: border-box;
 }
 
