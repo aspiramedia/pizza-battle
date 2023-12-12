@@ -7,47 +7,52 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>PIZZΛ BΛTTLE</h1>
 
-    <div class="container">
-        <div class="pizza-container pizza-a">
-            <h2>PIZZA A</h2>
-            <label for="diameterInput1">Diameter (inches):</label>
-            <input type="number" class="pizza-input" id="diameterInput1" placeholder="Enter diameter" min=1 step="any" value="8">
-            <label for="quantityInput1">Quantity:</label>
-            <input type="number" class="pizza-input" id="quantityInput1" placeholder="Enter quantity" min="1" value="2">
+    <div class="wrapper">
+        
+        <h1>PIZZΛ BΛTTLE</h1>
+
+        <div class="container">
+            <div class="pizza-container pizza-a">
+                <h2>PIZZA A</h2>
+                <label for="diameterInput1">Diameter (inches):</label>
+                <input type="number" class="pizza-input" id="diameterInput1" placeholder="Enter diameter" min=1 step="any" value="8">
+                <label for="quantityInput1">Quantity:</label>
+                <input type="number" class="pizza-input" id="quantityInput1" placeholder="Enter quantity" min="1" value="2">
+            </div>
+
+            <div class="pizza-container pizza-b">
+                <h2>PIZZA B</h2>
+                <label for="diameterInput2">Diameter (inches):</label>
+                <input type="number" class="pizza-input" id="diameterInput2" placeholder="Enter diameter" min=1 step="any" value="12">
+                <label for="quantityInput2">Quantity:</label>
+                <input type="number" class="pizza-input" id="quantityInput2" placeholder="Enter quantity" min="1" value="1">
+            </div>
+
         </div>
 
-        <div class="pizza-container pizza-b">
-            <h2>PIZZA B</h2>
-            <label for="diameterInput2">Diameter (inches):</label>
-            <input type="number" class="pizza-input" id="diameterInput2" placeholder="Enter diameter" min=1 step="any" value="12">
-            <label for="quantityInput2">Quantity:</label>
-            <input type="number" class="pizza-input" id="quantityInput2" placeholder="Enter quantity" min="1" value="1">
+        <div class="options">
+            <input type="checkbox" name="excludeCrust" id="excludeCrust">
+            Exclude crust?
+
+            <input type="checkbox" name="useMetric" id="useMetric">
+            Use metric (cm)
+
+            <input type="checkbox" name="futureOption2" id="futureOption2">
+            Future option
         </div>
 
+        <div id="result"></div>
+
+        <ul class="caveats">
+            <li><strong>Exclude crust:</strong> For crust haters, this ignores the crust edge. Assumes the crust edge is 1 inch all round. Therefore enabling this option removes 2 inches off the diameter. <em>Fun fact: This is also called the cornicione.</em></li>
+            <li><strong>Units:</strong> When converting between Metric and Imperial, the nearest whole number is used to keep the input diameters simple.</li>
+            <li><strong>Caveat label:</strong> Donec porttitor neque non eros varius sodales. Aenean sed gravida elit.</li>
+        </ul>
+
+        <p class="footer">Source code available <a href="https://github.com/faulkinator/pizza-battle">here on GitHub</a>.</p>
+
     </div>
-
-    <div class="options">
-        <input type="checkbox" name="excludeCrust" id="excludeCrust">
-        Exclude crust?
-
-        <input type="checkbox" name="useMetric" id="useMetric">
-        Use metric (cm)
-
-        <input type="checkbox" name="futureOption2" id="futureOption2">
-        Future option
-    </div>
-
-    <div id="result"></div>
-
-    <ul class="caveats">
-        <li><strong>Exclude crust:</strong> For crust haters, this ignores the crust edge. Assumes the crust edge is 1 inch all round. Therefore enabling this option removes 2 inches off the diameter. <em>Fun fact: This is also called the cornicione.</em></li>
-        <li><strong>Units:</strong> When converting between Metric and Imperial, the nearest whole number is used to keep the input diameters simple.</li>
-        <li><strong>Caveat label:</strong> Donec porttitor neque non eros varius sodales. Aenean sed gravida elit.</li>
-    </ul>
-
-    <p class="footer">Source code available <a href="https://github.com/faulkinator/pizza-battle">here on GitHub</a>.</p>
 
     <script src="script.js"></script>
 </body>
